@@ -1,25 +1,26 @@
 package com.agibank.test.cadastro.adapter.dto.cliente;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
 
 import java.time.LocalDate;
 
 public class ClienteRequestDTO {
 
-    @NotBlank
+    @NotNull(message = "O CPF é obrigatório")
+    @Pattern(regexp = "\\d{11}", message = "CPF deve ter 11 dígitos numéricos")
     private String cpf;
 
-    @NotBlank
+    @NotBlank(message = "O nome é obrigatório")
     private String nome;
 
-    @NotNull
+    @NotNull(message = "A data de nascimento é obrigatória")
+    @Past(message = "A data de nascimento deve ser uma data passada")
     private LocalDate dataNascimento;
 
-    @NotBlank
+    @NotBlank(message = "O telefone é obrigatório")
     private String telefone;
 
-    @NotBlank
+    @NotBlank(message = "O endereço é obrigatório")
     private String endereco;
 
     public String getCpf() {
