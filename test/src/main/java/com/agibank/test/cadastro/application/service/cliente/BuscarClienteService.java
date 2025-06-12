@@ -4,7 +4,9 @@ import com.agibank.test.cadastro.application.usecases.cliente.BuscarClienteUseCa
 import com.agibank.test.cadastro.domain.entities.Cliente;
 import com.agibank.test.cadastro.domain.exceptions.ClienteNaoEncontradoException;
 import com.agibank.test.cadastro.domain.repository.cliente.ClienteRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class BuscarClienteService implements BuscarClienteUseCase {
 
     private final ClienteRepository clienteRepository;
