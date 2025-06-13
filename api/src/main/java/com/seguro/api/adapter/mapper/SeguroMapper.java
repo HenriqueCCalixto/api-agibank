@@ -8,8 +8,6 @@ import org.mapstruct.factory.Mappers;
 @Mapper(componentModel = "spring")
 public interface SeguroMapper {
 
-    SeguroMapper INSTANCE = Mappers.getMapper(SeguroMapper.class);
-
     SeguroDataModel toDataModel(Seguro seguro);
 
     Seguro toDomain(SeguroDataModel seguroDataModel);

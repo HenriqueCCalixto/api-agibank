@@ -3,6 +3,9 @@ package com.seguro.api.adapter.datamodel;
 import com.seguro.api.domain.enums.TipoSeguro;
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "seguros")
 public class SeguroDataModel {
@@ -11,17 +14,21 @@ public class SeguroDataModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long idCliente;
+    private Long clienteId;
 
     @Enumerated(EnumType.STRING)
     private TipoSeguro tipoSeguro;
 
     private boolean contratado;
 
+    private LocalDate dataContratacao;
+
+    private BigDecimal valor;
+
     public SeguroDataModel() {}
 
-    public SeguroDataModel(Long idCliente, TipoSeguro tipoSeguro, boolean contratado) {
-        this.idCliente = idCliente;
+    public SeguroDataModel(Long clienteId, TipoSeguro tipoSeguro, boolean contratado) {
+        this.clienteId = clienteId;
         this.tipoSeguro = tipoSeguro;
         this.contratado = contratado;
     }
@@ -34,12 +41,12 @@ public class SeguroDataModel {
         this.id = id;
     }
 
-    public Long getIdCliente() {
-        return idCliente;
+    public Long getClienteId() {
+        return clienteId;
     }
 
-    public void setIdCliente(Long idCliente) {
-        this.idCliente = idCliente;
+    public void setClienteId(Long clienteId) {
+        this.clienteId = clienteId;
     }
 
     public TipoSeguro getTipoSeguro() {
@@ -56,5 +63,21 @@ public class SeguroDataModel {
 
     public void setContratado(boolean contratado) {
         this.contratado = contratado;
+    }
+
+    public LocalDate getDataContratacao() {
+        return dataContratacao;
+    }
+
+    public void setDataContratacao(LocalDate dataContratacao) {
+        this.dataContratacao = dataContratacao;
+    }
+
+    public BigDecimal getValor() {
+        return valor;
+    }
+
+    public void setValor(BigDecimal valor) {
+        this.valor = valor;
     }
 }
