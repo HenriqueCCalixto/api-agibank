@@ -1,4 +1,4 @@
-package com.seguro.api.config;
+package com.seguro.api.config.resttemplate;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package com.seguro.api.adapter.client.dto;
+package com.seguro.api.adapter.client.dto.cliente;
 
 public class ClienteDTO {
     private Long id;
