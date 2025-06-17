@@ -20,15 +20,15 @@ public class SeguroController {
     }
 
     @GetMapping("/simular/{idCliente}")
-    public ResponseEntity<TipoSeguro> simular(@PathVariable Long idCliente) {
+    public TipoSeguro simular(@PathVariable Long idCliente) {
         TipoSeguro tipoSeguro = simularSeguroUseCase.execute(idCliente);
-        return ResponseEntity.ok(tipoSeguro);
+        return tipoSeguro;
     }
 
     @PostMapping("/contratar/{idCliente}")
-    public ResponseEntity<Seguro> contratar(@PathVariable Long idCliente) {
+    public Seguro contratar(@PathVariable Long idCliente) {
         Seguro contratado = contratarSeguroUseCase.execute(idCliente);
-        return ResponseEntity.ok(contratado);
+        return contratado;
     }
 
 }
