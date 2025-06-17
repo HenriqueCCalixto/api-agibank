@@ -28,7 +28,7 @@ public class SeguroRepositoryImpl implements SeguroRepository {
 
     @Override
     public Optional<Seguro> findById(Long id) {
-        Optional<SeguroDataModel> dataModelOptional = seguroRepositoryJpa.findById(id);
-        return dataModelOptional.map(seguroMapper::toDomain);
+        Optional<SeguroDataModel> dataModel = seguroRepositoryJpa.findById(id);
+        return dataModel.map(seguroMapper::toDomain);
     }
 }
