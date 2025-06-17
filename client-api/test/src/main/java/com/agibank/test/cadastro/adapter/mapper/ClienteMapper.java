@@ -10,8 +10,6 @@ import org.mapstruct.factory.Mappers;
 @Mapper(componentModel = "spring")
 public interface ClienteMapper {
 
-    ClienteMapper INSTANCE = Mappers.getMapper(ClienteMapper.class);
-
     Cliente toDomain(ClienteDataModel clienteDataModel);
 
     ClienteDataModel toDataModel(Cliente cliente);
