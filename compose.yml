@@ -23,7 +23,7 @@ services:
     volumes:
       - pgdata_agibank:/var/lib/postgresql/data
 
-  client_api:
+  client-api:
     build:
       context: ./client-api
       dockerfile: Dockerfile
@@ -37,13 +37,13 @@ services:
     networks:
       - shared_network
 
-  seguro_api:
+  seguro-api:
     build:
       context: ./seguro-api
       dockerfile: Dockerfile
     container_name: seguro_app
     ports:
-      - "8081:8080"
+      - "8081:8081"
     env_file:
       - seguro-api/.env/compose.env
     depends_on:
