@@ -1,9 +1,9 @@
 package com.seguro.api.application.service.cliente;
 
 import com.seguro.api.adapter.client.cliente.ClienteAPIClient;
-import com.seguro.api.adapter.client.dto.cliente.ClienteDTO;
 import com.seguro.api.domain.exceptions.ClienteNaoEncontradoException;
 import com.seguro.api.domain.exceptions.ServiceNotFound;
+import com.seguro.api.domain.model.Cliente;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -24,13 +24,13 @@ class BuscarClienteApiServiceTest {
     @Test
     void deveRetornarClienteQuandoEncontrado() {
         Long idCliente = 1L;
-        ClienteDTO clienteDTO = new ClienteDTO();
-        clienteDTO.setId(idCliente);
-        clienteDTO.setNome("Cliente Teste");
+        Cliente cliente = new Cliente();
+        cliente.setId(idCliente);
+        cliente.setNome("Cliente Teste");
 
-        when(clienteApiClient.buscarClientePorId(idCliente)).thenReturn(clienteDTO);
+        when(clienteApiClient.buscarClientePorId(idCliente)).thenReturn(cliente);
 
-        ClienteDTO resultado = buscarClienteApiService.execute(idCliente);
+        Cliente resultado = buscarClienteApiService.execute(idCliente);
 
         assertNotNull(resultado);
         assertEquals(idCliente, resultado.getId());

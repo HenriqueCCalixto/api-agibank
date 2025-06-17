@@ -1,21 +1,21 @@
 package com.seguro.api.application.service.cliente;
 
-import com.seguro.api.adapter.client.cliente.ClienteAPIClient;
-import com.seguro.api.adapter.client.dto.cliente.ClienteDTO;
+import com.seguro.api.application.ports.ClienteApiPort;
 import com.seguro.api.application.usecases.cliente.BuscarClienteUseCase;
+import com.seguro.api.domain.model.Cliente;
 import org.springframework.stereotype.Service;
 
 @Service
 public class BuscarClienteApiService implements BuscarClienteUseCase {
 
-    private final ClienteAPIClient clienteApiClient;
+    private final ClienteApiPort clienteApiPort;
 
-    public BuscarClienteApiService(ClienteAPIClient clienteApiClient) {
-        this.clienteApiClient = clienteApiClient;
+    public BuscarClienteApiService(ClienteApiPort clienteApiPort) {
+        this.clienteApiPort = clienteApiPort;
     }
 
     @Override
-    public ClienteDTO execute(Long idCliente) {
-        return clienteApiClient.buscarClientePorId(idCliente);
+    public Cliente execute(Long idCliente) {
+        return clienteApiPort.buscarClientePorId(idCliente);
     }
 }
