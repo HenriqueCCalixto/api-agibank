@@ -6,7 +6,6 @@ import com.seguro.api.application.usecases.seguro.SimularSeguroUseCase;
 import com.seguro.api.domain.enums.TipoSeguro;
 import com.seguro.api.domain.model.Seguro;
 import com.seguro.api.domain.repository.SeguroRepository;
-import com.seguro.api.adapter.mapper.SeguroMapper;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -18,16 +17,13 @@ public class ContratarSeguroService implements ContratarSeguroUseCase {
     private final BuscarClienteUseCase buscarClienteUseCase;
     private final SimularSeguroUseCase simularSeguroUseCase;
     private final SeguroRepository seguroRepository;
-    private final SeguroMapper seguroMapper;
 
     public ContratarSeguroService(BuscarClienteUseCase buscarClienteUseCase,
                                   SimularSeguroUseCase simularSeguroUseCase,
-                                  SeguroRepository seguroRepository,
-                                  SeguroMapper seguroMapper) {
+                                  SeguroRepository seguroRepository) {
         this.buscarClienteUseCase = buscarClienteUseCase;
         this.simularSeguroUseCase = simularSeguroUseCase;
         this.seguroRepository = seguroRepository;
-        this.seguroMapper = seguroMapper;
     }
 
     @Override
